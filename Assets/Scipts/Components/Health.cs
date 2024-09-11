@@ -26,6 +26,8 @@ public class Health : MonoBehaviour
     public void ChangeHealth(int value)
     {
         _currentHealth += value;
+        if (_currentHealth > maxHealth)
+            _currentHealth = maxHealth;
         if (_currentHealth <= 0)
         {
             if (isPlayer)
