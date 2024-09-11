@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a60ac385252c590469c05b16798a710b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healingFactor: 20
+  healingFactor: -20
   coolDown: 5
   mat: {fileID: 2100000, guid: 5fdf8907b375b6749b34d6ddd48dd545, type: 2}
   matCoolDown: {fileID: 2100000, guid: c29eadc6a04cad6458f30f102b80a44a, type: 2}
