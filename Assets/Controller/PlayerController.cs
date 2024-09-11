@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     private InputAction _moveAction;
     private InputAction _fireAction;
 
-    [SerializeField] private int _moveSpeed = 2;
+    [SerializeField] public int _moveSpeed { get; set; } = 2;
+    [HideInInspector] public bool speedEffect; 
     [SerializeField] private Rigidbody _playerRigidbody;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _poi;

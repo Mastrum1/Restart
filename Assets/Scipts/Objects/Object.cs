@@ -10,5 +10,15 @@ public abstract class Object : MonoBehaviour
     {
         PickUp(other);
     }
+    
+    private void OnCol(Collider other)
+    {
+        PickUp(other);
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+        PickUp(other.collider);
+    }
+
     protected abstract void PickUp(Collider other);
 }
