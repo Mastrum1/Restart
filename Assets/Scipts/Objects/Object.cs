@@ -5,15 +5,11 @@ using UnityEngine;
 
 public abstract class Object : MonoBehaviour
 {
-
-    private void OnTriggerEnter(Collider other)
-    {
-        PickUp(other);
-    }
+    
     private void OnCollisionEnter(Collision other)
     {
-        PickUp(other.collider);
+        PickUp(other.rigidbody);
     }
 
-    protected abstract void PickUp(Collider other);
+    protected abstract void PickUp(Rigidbody other);
 }

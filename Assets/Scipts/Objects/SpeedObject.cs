@@ -8,13 +8,15 @@ public class SpeedObject : Object
     [SerializeField] private int speed = 2;
     [SerializeField] private int time = 2;
 
-    protected override void PickUp(Collider other)
+    protected override void PickUp(Rigidbody other)
     {
+        print("collide" + other.name);
         if (!other.GetComponent<PlayerController>()) return;
         var player = other.GetComponent<PlayerController>();
         if (player.speedEffect) return;
+        print("speed" + other.name);
         playerSpeed = player._moveSpeed;
-        player._moveSpeed = speed;
+        player._moveSpeed *= speed;
         player.speedEffect = true;
         StartCoroutine(EffectTime(player));
     }
