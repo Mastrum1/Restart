@@ -16,9 +16,22 @@ public class Weapon : MonoBehaviour
     [SerializeField] protected float cooldown = 1;
     [SerializeField] protected GameObject projectile;
     [SerializeField] protected Projectile projectileScript;
+    [SerializeField] private GunCD _gunCD;
 
     [SerializeField] GameObject[] _bulletPool;
     [SerializeField] int _maxBulletCount;
+    
+    public bool ShootReady
+    {
+        get => _shootReady;
+        set => _shootReady = value;
+    }
+
+    public float Cooldown
+    {
+        get => cooldown;
+        set => cooldown = value;
+    }
 
 
     // Start is called before the first frame update
@@ -61,6 +74,7 @@ public class Weapon : MonoBehaviour
     IEnumerator ShootCooldown()
     {
         _shootReady = false;
+        //_gunCD.CDPanel();
         yield return new WaitForSeconds(cooldown);
         _shootReady = true; 
     }

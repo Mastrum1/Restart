@@ -12,20 +12,29 @@ public class Health : MonoBehaviour
         get => _currentHealth;
         private set => _currentHealth = value;
     }
-    private float _currentHealth;
+    [SerializeField] private float _currentHealth;
+
+    public float MaxHealth
+    {
+        get => maxHealth;
+        set => maxHealth = value;
+    }
 
     [SerializeField] private bool isPlayer = false;
     [SerializeField] private float maxHealth;
+    [SerializeField] private HealthBar healthBar;
     
     // Start is called before the first frame update
     void Start()
     {
-        _currentHealth = maxHealth; 
+        _currentHealth = maxHealth;
+        healthBar.HealthUpdate();
     }
 
     public void ChangeHealth(int value)
     {
         _currentHealth += value;
+        healthBar.HealthUpdate();
         if (_currentHealth <= 0)
         {
             if (isPlayer)
