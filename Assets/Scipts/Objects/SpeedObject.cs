@@ -16,9 +16,8 @@ public class SpeedObject : Object
         playerSpeed = player._moveSpeed;
         player._moveSpeed = speed;
         player.speedEffect = true;
-        
+        StartCoroutine(EffectTime(player));
     }
-
     private IEnumerator EffectTime(PlayerController player)
     {
         yield return new WaitForSeconds(time);

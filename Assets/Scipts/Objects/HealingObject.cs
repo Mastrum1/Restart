@@ -8,6 +8,7 @@ public class HealingObject : Object
     
     protected override void PickUp(Collider other)
     {
+        if (!other.GetComponent<Health>()) return;
         other.GetComponent<Health>().ChangeHealth(healingFactor);
     }
 }
