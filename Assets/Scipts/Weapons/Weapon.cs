@@ -23,16 +23,16 @@ public class Weapon : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        _playerController.Fire.AddListener(Shoot);
+    { 
+        // _playerController.Fire.AddListener(Shoot);
         
-        _maxBulletCount = (int)projectileScript.LifeTime / (int)cooldown + 1;
-        _bulletPool = new GameObject[_maxBulletCount];
-        for (int i = 0; i < _maxBulletCount; i++)
-        {
-            _bulletPool[i] = Instantiate(projectile, gameObject.transform);
-            _bulletPool[i].SetActive(false);
-        }
+        // _maxBulletCount = (int)projectileScript.LifeTime / (int)cooldown + 1;
+        // _bulletPool = new GameObject[_maxBulletCount];
+        // for (int i = 0; i < _maxBulletCount; i++)
+        // {
+        //     _bulletPool[i] = Instantiate(projectile, gameObject.transform);
+        //     _bulletPool[i].SetActive(false);
+        // }
     }
 
     // Update is called once per frame

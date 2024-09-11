@@ -260,6 +260,37 @@ Terrain:
   m_EnableHeightmapRayTracing: 1
   m_EnableTreesAndDetailsRayTracing: 0
   m_TreeMotionVectorModeOverride: 3
+--- !u!1 &359897124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 359897125}
+  m_Layer: 3
+  m_Name: CatSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &359897125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359897124}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1558991795}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,6 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf52cd1fa2d9e88449709f665857267c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerController: {fileID: 0}
   Player: {fileID: 1558991794}
   name: Pistol
   cooldown: 1
@@ -803,6 +835,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1558991795}
   - component: {fileID: 1558991797}
+  - component: {fileID: 1558991800}
   - component: {fileID: 1558991798}
   - component: {fileID: 1558991799}
   m_Layer: 3
@@ -828,6 +861,7 @@ Transform:
   - {fileID: 623210413}
   - {fileID: 1579309666}
   - {fileID: 157858977}
+  - {fileID: 359897125}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1558991797
@@ -907,6 +941,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &1558991800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558991794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d0239498ef6d746a563ad04c5bf60d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnPerSecond: 92.5
+  _projectionStrength: 8.94
+  _upInfluence: 5
+  _playerController: {fileID: 1558991797}
+  _catPrefab: {fileID: 8579572709014762861, guid: 549490f3607b3ee498ddcf76029e6389,
+    type: 3}
+  _spawnPoint: {fileID: 359897125}
 --- !u!1 &1579309665
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,12 +12,15 @@ public class PlayerController : MonoBehaviour
     public InputContoller InputContoller;
     private InputAction _moveAction;
     private InputAction _fireAction;
+    private InputAction _spawnCatAction;
 
     [SerializeField] private int _moveSpeed = 2;
     [SerializeField] private Rigidbody _playerRigidbody;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _poi;
-        
+
+    public InputAction SpawnCatAction => _spawnCatAction;
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -30,6 +33,8 @@ public class PlayerController : MonoBehaviour
         _moveAction.Enable();
         _fireAction = InputContoller.Player.Fire;
         _fireAction.Enable();
+        _spawnCatAction = InputContoller.Player.SpawnCat;
+        _spawnCatAction.Enable();
     }
 
     private void OnDisable()

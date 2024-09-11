@@ -44,6 +44,15 @@ public partial class @InputContoller: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SpawnCat"",
+                    ""type"": ""Button"",
+                    ""id"": ""757bde4b-ace5-4218-b101-ed3c3512d950"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -167,6 +176,17 @@ public partial class @InputContoller: IInputActionCollection2, IDisposable
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02eb9e94-565d-4505-bd90-cd2652ed75a8"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""SpawnCat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -238,6 +258,7 @@ public partial class @InputContoller: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
+        m_Player_SpawnCat = m_Player.FindAction("SpawnCat", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -301,12 +322,14 @@ public partial class @InputContoller: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Fire;
+    private readonly InputAction m_Player_SpawnCat;
     public struct PlayerActions
     {
         private @InputContoller m_Wrapper;
         public PlayerActions(@InputContoller wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
+        public InputAction @SpawnCat => m_Wrapper.m_Player_SpawnCat;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -322,6 +345,9 @@ public partial class @InputContoller: IInputActionCollection2, IDisposable
             @Fire.started += instance.OnFire;
             @Fire.performed += instance.OnFire;
             @Fire.canceled += instance.OnFire;
+            @SpawnCat.started += instance.OnSpawnCat;
+            @SpawnCat.performed += instance.OnSpawnCat;
+            @SpawnCat.canceled += instance.OnSpawnCat;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -332,6 +358,9 @@ public partial class @InputContoller: IInputActionCollection2, IDisposable
             @Fire.started -= instance.OnFire;
             @Fire.performed -= instance.OnFire;
             @Fire.canceled -= instance.OnFire;
+            @SpawnCat.started -= instance.OnSpawnCat;
+            @SpawnCat.performed -= instance.OnSpawnCat;
+            @SpawnCat.canceled -= instance.OnSpawnCat;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -398,5 +427,6 @@ public partial class @InputContoller: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnSpawnCat(InputAction.CallbackContext context);
     }
 }
