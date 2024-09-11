@@ -11,5 +11,11 @@ public abstract class Object : MonoBehaviour
         PickUp(other.rigidbody);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.GetComponentInParent<Rigidbody>())
+            PickUp(other.GetComponentInParent<Rigidbody>());
+    }
+
     protected abstract void PickUp(Rigidbody other);
 }

@@ -10,11 +10,9 @@ public class SpeedObject : Object
 
     protected override void PickUp(Rigidbody other)
     {
-        print("collide" + other.name);
         if (!other.GetComponent<PlayerController>()) return;
         var player = other.GetComponent<PlayerController>();
         if (player.speedEffect) return;
-        print("speed" + other.name);
         playerSpeed = player._moveSpeed;
         player._moveSpeed *= speed;
         player.speedEffect = true;
