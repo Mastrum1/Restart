@@ -54,6 +54,7 @@ public class Projectile : MonoBehaviour
         {
             targetHealth.ChangeHealth(-damage);
         }
+        gameObject.SetActive(false);
     }
 
     IEnumerator Die()
