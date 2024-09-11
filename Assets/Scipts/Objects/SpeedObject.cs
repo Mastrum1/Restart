@@ -5,8 +5,8 @@ using UnityEngine;
 public class SpeedObject : Object
 {
     private int playerSpeed; 
-    [SerializeField] private int speed;
-    [SerializeField] private int time;
+    [SerializeField] private int speed = 2;
+    [SerializeField] private int time = 2;
 
     protected override void PickUp(Collider other)
     {
